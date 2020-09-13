@@ -1,0 +1,8 @@
+.gray{
+  background-color: #eee;
+}
+
+.item{
+  width: 190px;
+  display: inline-block;
+}
