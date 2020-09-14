@@ -1,26 +1,36 @@
-<h3>{{tempVar}}</h3>
+<div class="line">
+  <mat-form-field appearance="outline"> 
+    <mat-label>Sort users</mat-label>
+    <mat-select #list (selectionChange)="sort(list.value)">
+      <mat-option value="0">A-Z</mat-option>
+      <mat-option value="1">Z-A</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Search...</mat-label>
+    <input matInput placeholder="Find user" #input (keyup.enter)="search(input.value)">
+    <mat-icon matSuffix (click)="search(input.value)">search</mat-icon>
+  </mat-form-field>
+</div>
 
 <mat-selection-list #users>
-  <mat-list-option 
+  <mat-list-option
     *ngFor="let user of usersList; let i = index"
-    [ngClass]="{'gray': i%2}"> 
+    [ngClass]="{ gray: i % 2 }"
+  >
     <div>
-      <span class="item">{{i}} - {{user .username}}</span>
-      <span class="item">{{user.name}}</span>
-      <span *ngIf="user.role === 'Admin'" class="item">{{user.role}}</span>
+      <span class="item">{{ i }} - {{ user.username }}</span>
+      <span class="item">{{ user.name }}</span>
+      <span *ngIf="user.role === 'Admin'" class="item">{{ user.role }}</span>
     </div>
-    
-    
   </mat-list-option>
 </mat-selection-list>
-  
-<p>
-  Options selected: {{users.selectedOptions.selected.length}}
-</p>
 
+<p>Options selected: {{ users.selectedOptions.selected.length }}</p>
 
 <!-- <div *ngFor="let user of usersList"> -->
-  <!-- <span *ngIf="user.role==='Admin'">{{user.name}}</span> -->
-  <!-- paint Admins grey -->
-  <!-- <span [ngClass]="{'gray': user.role==='Admin'}">{{user.name}}</span>   -->
+<!-- <span *ngIf="user.role==='Admin'">{{user.name}}</span> -->
+<!-- paint Admins grey -->
+<!-- <span [ngClass]="{'gray': user.role==='Admin'}">{{user.name}}</span>   -->
 <!-- </div> -->
