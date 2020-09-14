@@ -13,3 +13,20 @@
   justify-content: space-between;
   align-items: flex-start;
 }
+
+.add-item{
+  width: 150px;
+  display: inline-block;
+}
+.add-btn{
+  margin-top: 10px;
+  display: inline-block;
+}
+
+.delete-btn{
+  height: 40px;
+}
+
+.footer{
+  align-items: center;
+}
